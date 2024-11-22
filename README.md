@@ -1,4 +1,4 @@
-#cat-generator
+# cat-generator
 
 Gera imagens aleatórias de gatinhos com o TheCatAPI 
 
