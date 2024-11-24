@@ -32,14 +32,19 @@ button:active {
     align-items: center;
     flex-direction: column;
     gap: 1rem;
+    min-height: 10rem;
+    min-width: 10rem;
     border-radius: 1rem;
     padding: 1rem;
     border: 2px solid black;
     transition: 1s;
 }
 
-.anim {
+.fade {
     animation: fade 1s;
+}
+.spin {
+    animation: spin 2s infinite ease-in-out;
 }
 
 @keyframes fade {
@@ -49,5 +54,13 @@ button:active {
     } to {
         width: 100%;
         opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        rotate: 0deg;
+    } to {
+        rotate: 360deg;
     }
 }
