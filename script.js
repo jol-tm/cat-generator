@@ -9,7 +9,7 @@ function getImg() {
 function displayData(result){
     const box = document.querySelector("#box");
     
-    box.innerHTML = `<img id="catImg" src="${result[0].url}"><button class="gen spin">Generate Cat &#x1F63A;</button>`;
+    box.innerHTML = `<img id="catImg" src="${result[0].url}"><button class="gen pulse">Generate Cat &#x1F63A;</button>`;
     
     // Só existem depois de serem criadas na box acima
     const gen = document.querySelector(".gen");
@@ -18,7 +18,7 @@ function displayData(result){
     gen.addEventListener("click", getImg);
     img.onload = () => { 
         img.classList.add("fade");
-        gen.classList.remove("spin");
+        gen.classList.remove("pulse");
             
     };
 

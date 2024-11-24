@@ -32,8 +32,6 @@ button:active {
     align-items: center;
     flex-direction: column;
     gap: 1rem;
-    min-height: 10rem;
-    min-width: 10rem;
     border-radius: 1rem;
     padding: 1rem;
     border: 2px solid black;
@@ -43,8 +41,8 @@ button:active {
 .fade {
     animation: fade 1s;
 }
-.spin {
-    animation: spin 2s infinite ease-in-out;
+.pulse {
+    animation: pulse .5s infinite alternate ease-in-out;
 }
 
 @keyframes fade {
@@ -57,10 +55,10 @@ button:active {
     }
 }
 
-@keyframes spin {
+@keyframes pulse {
     from {
-        rotate: 0deg;
+        scale: .9;
     } to {
-        rotate: 360deg;
+        scale: 1;
     }
 }
