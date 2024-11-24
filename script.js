@@ -8,6 +8,7 @@ function getImg() {
 
 function displayData(result){
     const box = document.querySelector("#box");
+    box.style.gap = 0;
     
     box.innerHTML = `<img id="catImg" src="${result[0].url}"><button class="gen pulse">Generate Cat &#x1F63A;</button>`;
     
@@ -19,16 +20,16 @@ function displayData(result){
     img.onload = () => { 
         img.classList.add("fade");
         gen.classList.remove("pulse");
-            
+        box.style.gap = "1rem";
+        jsConfetti.addConfetti({
+            emojis: ['😺','😹','😻','🎊','❤️'],
+            emojiSize: 50,
+         })
     };
 
     box.style.backgroundColor = randColor();
     gen.style.backgroundColor = randColor();
 
-    jsConfetti.addConfetti({
-        emojis: ['😺','😹','😻','🎊','❤️'],
-        emojiSize: 50,
-     })
 }
 
 function randColor() {
