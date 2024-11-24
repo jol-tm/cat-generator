@@ -9,8 +9,7 @@ body {
 img {
     border-radius: .5rem;
     max-width: 90vw;
-    max-height: 90vh;
-    animation: fade 1s;
+    max-height: 80vh;
 }
 
 button {
@@ -23,6 +22,9 @@ button:hover {
     cursor: pointer;
     transform: translateY(-3px);
 }
+button:active {
+    scale: .9;
+}
 
 #box {
     display: flex;
@@ -34,6 +36,10 @@ button:hover {
     padding: 1rem;
     border: 2px solid black;
     transition: 1s;
+}
+
+.anim {
+    animation: fade 1s;
 }
 
 @keyframes fade {
