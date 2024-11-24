@@ -1,15 +1,14 @@
-const jsConfetti = new JSConfetti();
-
 function getImg() {
     fetch("https://api.thecatapi.com/v1/images/search")
-        .then(Response => Response.json())
-        .then(displayData);
+    .then(Response => Response.json())
+    .then(displayData);
 }
 
 function displayData(result){
+    const jsConfetti = new JSConfetti();
     const box = document.querySelector("#box");
+
     box.style.gap = 0;
-    
     box.innerHTML = `<img id="catImg" src="${result[0].url}"><button class="gen pulse">Generate Cat &#x1F63A;</button>`;
     
     // Só existem depois de serem criadas na box acima
@@ -18,8 +17,9 @@ function displayData(result){
 
     gen.addEventListener("click", getImg);
     img.onload = () => { 
-        img.classList.add("fade");
         gen.classList.remove("pulse");
+        img.classList.add("fade");
+        img.style.display = "block";
         box.style.gap = "1rem";
         jsConfetti.addConfetti({
             emojis: ['😺','😹','😻','🎊','❤️'],

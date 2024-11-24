@@ -7,6 +7,7 @@ body {
 }
 
 img {
+    display: none; /* Será mudado para block quando carregar*/
     border-radius: .5rem;
     max-width: 90vw;
     max-height: 80vh;
