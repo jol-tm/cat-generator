@@ -7,6 +7,7 @@ function getImg() {
 function displayData(result){
     const jsConfetti = new JSConfetti();
     const box = document.querySelector("#box");
+    const bckg = document.body;
 
     box.style.gap = 0;
     box.innerHTML = `<img id="catImg" src="${result[0].url}"><button class="gen pulse">Generate Cat &#x1F63A;</button>`;
@@ -29,6 +30,8 @@ function displayData(result){
 
     box.style.backgroundColor = randColor();
     gen.style.backgroundColor = randColor();
+    bckg.style.backgroundColor = randColor();
+    
 
 }
 
