@@ -7,45 +7,59 @@ body {
     transition: .3s;
 }
 
-img {
+#loader {
+    z-index: 1;
+    position: absolute;
+    height: 5rem;
+    animation: spin 3s infinite, pop .5s;
+    filter: drop-shadow(.2rem .2rem black) contrast(120%);
+    transition: 1s;
+}
+
+#catImg {
     display: none; /* Será mudado para block quando carregar*/
     border-radius: .5rem;
     max-width: 90vw;
     max-height: 80vh;
+    transition: 1s;
 }
 
-button {
+#changeBtn {
     padding: .5rem;
     border-radius: .5rem;
     border: 2px solid black;
     transition: .3s;
 }
-button:hover {
+#changeBtn:hover {
     cursor: pointer;
     transform: translateY(-3px);
 }
-button:active {
+#changeBtn:active {
     scale: .9;
 }
 
 #box {
+    position: relative;
     display: flex;
     justify-content: center;
+    min-height: 5rem;
     align-items: center;
     flex-direction: column;
-    gap: 0;
+    gap: 1rem;
     border-radius: 1rem;
     padding: 1rem;
     border: 2px solid black;
+    transition: .3s;
 }
 
 .fade {
     animation: fade 1s;
 }
-.pulse {
-    animation: pulse .5s infinite alternate ease-in-out;
+.reverseFade {
+    animation: fade 1s reverse;
 }
 
+/* ANIMAÇÕES */
 @keyframes fade {
     from {
         width: 0;
@@ -55,11 +69,17 @@ button:active {
         opacity: 1;
     }
 }
-
-@keyframes pulse {
+@keyframes pop {
     from {
-        scale: .9;
+        scale: 0;
     } to {
         scale: 1;
+    }
+}
+@keyframes spin {
+    from {
+        rotate: 0deg;
+    } to {
+        rotate: 360deg;
     }
 }

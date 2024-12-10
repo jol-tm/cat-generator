@@ -6,22 +6,21 @@ function getImg() {
 
 function displayData(result){
     const jsConfetti = new JSConfetti();
-    const box = document.querySelector("#box");
     const bckg = document.body;
-
-    box.style.gap = 0;
-    box.innerHTML = `<img id="catImg" src="${result[0].url}"><button class="gen pulse">Generate Cat &#x1F63A;</button>`;
-    
-    // Só existem depois de serem criadas na box acima
-    const gen = document.querySelector(".gen");
+    const box = document.querySelector("#box");
     const img = document.querySelector("#catImg");
+    const btn = document.querySelector("#changeBtn");
+    const loader = document.querySelector("#loader");
 
-    gen.addEventListener("click", getImg);
+    img.setAttribute("src", result[0].url)
+
+    btn.addEventListener("click", change);
+    
     img.onload = () => { 
-        gen.classList.remove("pulse");
         img.classList.add("fade");
         img.style.display = "block";
-        box.style.gap = "1rem";
+        btn.style.opacity = 1;
+        loader.style.opacity = 0;
         jsConfetti.addConfetti({
             emojis: ['😺','😹','😻','🎊','❤️'],
             emojiSize: 50,
@@ -29,10 +28,19 @@ function displayData(result){
     };
 
     box.style.backgroundColor = randColor();
-    gen.style.backgroundColor = randColor();
+    btn.style.backgroundColor = randColor();
     bckg.style.backgroundColor = randColor();
-    
+}
 
+function change() {
+    const box = document.querySelector("#box");
+    const loader = document.querySelector("#loader");
+    
+    loader.style.opacity = 1;
+    box.innerHTML = `<img id="loader" src="cat.png" alt=""><img id="catImg" src=""><button id="changeBtn" class="gen">Generate Cat &#x1F63A;</button>`;
+    
+    document.querySelector("#changeBtn").style.opacity = 0;
+    getImg();
 }
 
 function randColor() {
@@ -43,4 +51,4 @@ function randColor() {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-getImg();
+change();
