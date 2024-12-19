@@ -12,7 +12,6 @@ body {
     position: absolute;
     height: 5rem;
     animation: spin 3s infinite, pop .5s;
-    filter: drop-shadow(.2rem .2rem black) contrast(120%);
     transition: 1s;
 }
 
